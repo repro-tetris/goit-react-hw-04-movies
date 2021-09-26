@@ -1,9 +1,10 @@
 import React from "react";
 import { FcManager } from "react-icons/fc";
+import s from "./CastItem.module.css";
 
 function CastItem({ item: { name, character, profile_path } }) {
   return (
-    <li>
+    <li className={s.card}>
       {profile_path ? (
         <img
           src={`https://image.tmdb.org/t/p/w500${profile_path}`}
@@ -13,7 +14,7 @@ function CastItem({ item: { name, character, profile_path } }) {
       ) : (
         <FcManager size="100" />
       )}
-      <p>{name}</p>
+      <p className={s.name}>{name}</p>
       <p>Character: {character}</p>
     </li>
   );

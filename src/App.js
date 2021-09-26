@@ -1,21 +1,17 @@
 import { Redirect, Route, Switch } from "react-router";
-import { NavLink } from "react-router-dom";
 
 import HomePage from "./components/HomePage/HomePage";
 import { MovieDetailsPage, MoviesPage } from "./components/Movie";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   return (
     <div>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-      </nav>
+      <NavBar />
       <Switch>
-        <Route path="/" exact component={HomePage}></Route>
-        <Route path="/movies" exact component={MoviesPage}></Route>
-        <Route path="/movies/:id" component={MovieDetailsPage}></Route>
-
+        <Route path="/" exact component={HomePage} />
+        <Route path="/movies" exact component={MoviesPage} />
+        <Route path="/movies/:id" component={MovieDetailsPage} />
         <Redirect to="/" />
       </Switch>
     </div>

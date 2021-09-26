@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./SearchForm.module.css";
 
 function SearchForm({ onSubmit }) {
   const formSubmit = (e) => {
@@ -7,9 +8,11 @@ function SearchForm({ onSubmit }) {
     e.target.searchStr.value = "";
   };
   return (
-    <form onSubmit={formSubmit}>
+    <form className={s.form} onSubmit={formSubmit}>
       <input name="searchStr" type="text"></input>
-      <button type="submit"> search</button>
+      <button className={s.btn} type="submit">
+        search
+      </button>
     </form>
   );
 }

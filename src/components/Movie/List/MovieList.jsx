@@ -1,5 +1,5 @@
 import React from "react";
-import MovieItem from "../Item/MovieItem";
+import { MovieItem } from "../../Movie";
 
 function MovieList({ items }) {
   return (

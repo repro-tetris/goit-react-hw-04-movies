@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getMovieCast } from "../../common/tmdb-api";
-import CastList from "./List/CastList";
+import { CastList } from "../Cast";
 
 function Cast({ id }) {
   const [cast, setCast] = useState([]);

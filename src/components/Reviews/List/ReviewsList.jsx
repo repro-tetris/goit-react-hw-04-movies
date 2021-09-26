@@ -1,5 +1,5 @@
 import React from "react";
-import ReviewsItem from "../Item/ReviewsItem";
+import { ReviewsItem } from "../../Reviews";
 
 function ReviewsList({ items }) {
   return (

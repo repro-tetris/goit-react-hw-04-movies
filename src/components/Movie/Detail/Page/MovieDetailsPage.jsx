@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { Link, Route, useRouteMatch } from "react-router-dom";
 import { getMovieDetail } from "../../../../common/tmdb-api";
-import Cast from "../../../Cast/Cast";
+import { Cast } from "../../../Cast";
 import Reviews from "../../../Reviews/Reviews";
 import { MovieDetailsCard } from "../../../Movie";
 
@@ -38,6 +38,7 @@ function MovieDetailsPage(props) {
       <>
         <button onClick={handleGoBackButton}>Go back</button>
         <MovieDetailsCard info={info} />
+
         <Link to={`${match.path}/cast`}>Cast</Link>
         <Route path={`${match.path}/cast`}>
           <Cast id={info.id} />

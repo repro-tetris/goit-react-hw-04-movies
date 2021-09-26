@@ -1,5 +1,5 @@
 import React from "react";
-import CastItem from "../Item/CastItem";
+import { CastItem } from "../../Cast";
 
 function CastList({ items }) {
   console.log(items);

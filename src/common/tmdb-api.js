@@ -11,6 +11,8 @@ const queries = {
     `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_KEY}&language=en-US`,
   getMovieCast: (id) =>
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${TMDB_KEY}&language=en-US`,
+  getMovieReview: (id) =>
+    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${TMDB_KEY}&language=en-US&page=1`,
 };
 
 export const getTreding = async () => {
@@ -27,4 +29,8 @@ export const getMovieDetail = async (id) => {
 
 export const getMovieCast = async (id) => {
   return await axios.get(queries.getMovieCast(id));
+};
+
+export const getMovieReview = async (id) => {
+  return await axios.get(queries.getMovieReview(id));
 };

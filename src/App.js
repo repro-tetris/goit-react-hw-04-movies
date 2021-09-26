@@ -2,8 +2,7 @@ import { Redirect, Route, Switch } from "react-router";
 import { NavLink } from "react-router-dom";
 
 import HomePage from "./components/HomePage/HomePage";
-import MovieDetailsPage from "./components/Movie/DetailPage/MovieDetailsPage";
-import MoviesPage from "./components/Movie/Page/MoviesPage";
+import { MovieDetailsPage, MoviesPage } from "./components/Movie";
 
 function App() {
   return (

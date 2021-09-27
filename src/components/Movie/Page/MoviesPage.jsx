@@ -7,10 +7,10 @@ const PARAMS = {
   QUERY: "query",
 };
 
-function MoviesPage(props) {
+function MoviesPage({ location, history }) {
   const [movies, setMovies] = useState([]);
   const [searchStr, setSearchStr] = useState(() => {
-    const params = new URLSearchParams(props.location.search);
+    const params = new URLSearchParams(location.search);
     return params.has(PARAMS.QUERY) ? params.get(PARAMS.QUERY) : null;
   });
 
@@ -23,8 +23,8 @@ function MoviesPage(props) {
   }, [searchStr]);
 
   const onSearch = (searchStr) => {
-    props.history.push({
-      pathname: props.location.pathname,
+    history.push({
+      pathname: location.pathname,
       search: `${PARAMS.QUERY}=${searchStr}`,
     });
     setSearchStr(searchStr);

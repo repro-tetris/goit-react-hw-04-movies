@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { useState, useEffect } from "react";
 import { getMovieCast } from "../../common/tmdb-api";
 import { CastList } from "../Cast";
@@ -18,5 +19,9 @@ function Cast({ id }) {
 
   return <CastList items={cast} />;
 }
+
+Cast.propTypes = {
+  id: PropTypes.number,
+};
 
 export default Cast;

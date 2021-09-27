@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 
 function MovieItem({ item: { id, title } }) {
@@ -8,5 +9,10 @@ function MovieItem({ item: { id, title } }) {
     </li>
   );
 }
+
+MovieItem.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+};
 
 export default MovieItem;

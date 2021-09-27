@@ -6,7 +6,7 @@ import { MovieDetailsCard } from "../../../Movie";
 import s from "./MovieDetailsPage.module.css";
 import AdditionalInfo from "../../AdditionalInfo/AdditionalInfo";
 
-function MovieDetailsPage(props) {
+function MovieDetailsPage({ match, history }) {
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
@@ -15,11 +15,11 @@ function MovieDetailsPage(props) {
       setInfo(data);
     };
 
-    getInfo(props.match.params.id);
-  }, [props.match.params.id]);
+    getInfo(match.params.id);
+  }, [match.params.id]);
 
   const handleGoBackButton = () => {
-    props.history.goBack();
+    history.goBack();
   };
 
   return (

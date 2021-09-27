@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { ReviewsItem } from "../../Reviews";
 import NoReviews from "../NoReviews/NoReviews";
 
@@ -13,5 +14,9 @@ function ReviewsList({ items }) {
     <NoReviews />
   );
 }
+
+ReviewsList.propTypes = {
+  items: PropTypes.array,
+};
 
 export default ReviewsList;

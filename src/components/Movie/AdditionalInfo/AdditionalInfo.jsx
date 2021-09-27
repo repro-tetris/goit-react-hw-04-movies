@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { NavLink, Route, useRouteMatch } from "react-router-dom";
 import { Cast } from "../../Cast";
 import { Reviews } from "../../Reviews";
@@ -35,5 +36,9 @@ function AdditionalInfo({ id }) {
     </>
   );
 }
+
+AdditionalInfo.propTypes = {
+  id: PropTypes.number,
+};
 
 export default AdditionalInfo;

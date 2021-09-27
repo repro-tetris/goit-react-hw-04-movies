@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { MovieItem } from "../../Movie";
 
 function MovieList({ items }) {
@@ -15,4 +16,7 @@ function MovieList({ items }) {
   );
 }
 
+MovieList.propTypes = {
+  items: PropTypes.array,
+};
 export default MovieList;

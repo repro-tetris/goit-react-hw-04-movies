@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { PropTypes } from "prop-types";
 import { useState } from "react";
 import { getMovieReview } from "../../common/tmdb-api";
 import { ReviewsList } from "../Reviews";
@@ -16,5 +17,9 @@ function Reviews({ id }) {
 
   return review && <ReviewsList items={review} />;
 }
+
+Reviews.propTypes = {
+  id: PropTypes.number,
+};
 
 export default Reviews;

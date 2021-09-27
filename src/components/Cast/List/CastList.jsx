@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import s from "./CastList.module.css";
 import { CastItem } from "../../Cast";
 
@@ -12,5 +13,8 @@ function CastList({ items }) {
     </ul>
   );
 }
+CastList.propTypes = {
+  items: PropTypes.array,
+};
 
 export default CastList;

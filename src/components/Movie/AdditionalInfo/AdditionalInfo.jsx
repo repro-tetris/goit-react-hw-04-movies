@@ -1,6 +1,6 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import { NavLink, Route, useRouteMatch } from "react-router-dom";
+import { NavLink, Route, useRouteMatch, Switch } from "react-router-dom";
 import { Cast } from "../../Cast";
 import { Reviews } from "../../Reviews";
 import s from "./AdditionalInfo.module.css";
@@ -27,12 +27,14 @@ function AdditionalInfo({ id }) {
           Review
         </NavLink>
       </div>
-      <Route path={`${match.url}/cast`}>
-        <Cast id={id} />
-      </Route>
-      <Route path={`${match.url}/reviews`}>
-        <Reviews id={id} />
-      </Route>
+      <Switch>
+        <Route path={`${match.url}/cast`}>
+          <Cast id={id} />
+        </Route>
+        <Route path={`${match.url}/reviews`}>
+          <Reviews id={id} />
+        </Route>
+      </Switch>
     </>
   );
 }

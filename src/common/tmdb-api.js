@@ -1,18 +1,18 @@
 import axios from "axios";
 
-const TMDB_KEY = "b3e695ce06698b15098252cc7d8c2c76";
+const BASE_URL = "https://api.themoviedb.org/3/";
+
+axios.defaults.params = {
+  api_key: "b3e695ce06698b15098252cc7d8c2c76",
+};
 
 const queries = {
-  getTrendingQuery: () =>
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${TMDB_KEY}`,
+  getTrendingQuery: () => `${BASE_URL}trending/movie/day`,
   getSearchQuery: (searchStr) =>
-    `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${searchStr}`,
-  getMovieDetail: (id) =>
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${TMDB_KEY}&language=en-US`,
-  getMovieCast: (id) =>
-    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${TMDB_KEY}&language=en-US`,
-  getMovieReview: (id) =>
-    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${TMDB_KEY}&language=en-US&page=1`,
+    `${BASE_URL}search/movie?language=en-US&page=1&include_adult=false&query=${searchStr}`,
+  getMovieDetail: (id) => `${BASE_URL}movie/${id}?language=en-US`,
+  getMovieCast: (id) => `${BASE_URL}movie/${id}/credits?language=en-US`,
+  getMovieReview: (id) => `${BASE_URL}movie/${id}/reviews?language=en-US`,
 };
 
 export const getTreding = async () => {

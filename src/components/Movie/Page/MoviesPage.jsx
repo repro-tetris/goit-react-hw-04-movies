@@ -8,7 +8,7 @@ const PARAMS = {
 };
 
 function MoviesPage({ location, history }) {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
   const [searchStr, setSearchStr] = useState(() => {
     const params = new URLSearchParams(location.search);
     return params.has(PARAMS.QUERY) ? params.get(PARAMS.QUERY) : null;
@@ -33,7 +33,8 @@ function MoviesPage({ location, history }) {
   return (
     <div>
       <SearchForm onSubmit={onSearch} />
-      {searchStr && <MovieList items={movies} />}
+
+      {movies && <MovieList items={movies} />}
     </div>
   );
 }

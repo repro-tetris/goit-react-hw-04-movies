@@ -3,9 +3,10 @@ import { PropTypes } from "prop-types";
 import { useState, useEffect } from "react";
 import { getMovieCast } from "../../common/tmdb-api";
 import { CastList } from "../Cast";
+import Loading from "../Loading/Loading";
 
 function Cast({ id }) {
-  const [cast, setCast] = useState([]);
+  const [cast, setCast] = useState(null);
 
   useEffect(() => {
     const getCast = async (id) => {
@@ -17,7 +18,12 @@ function Cast({ id }) {
     getCast(id);
   }, [id]);
 
-  return <CastList items={cast} />;
+  return (
+    <>
+      {!cast && <Loading />}
+      {cast && <CastList items={cast} />}
+    </>
+  );
 }
 
 Cast.propTypes = {

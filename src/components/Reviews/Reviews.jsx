@@ -3,6 +3,7 @@ import { PropTypes } from "prop-types";
 import { useState } from "react";
 import { getMovieReview } from "../../common/tmdb-api";
 import { ReviewsList } from "../Reviews";
+import Loading from "../Loading/Loading";
 
 function Reviews({ id }) {
   const [review, setReview] = useState(null);
@@ -15,7 +16,12 @@ function Reviews({ id }) {
     getReview(id);
   }, [id]);
 
-  return review && <ReviewsList items={review} />;
+  return (
+    <>
+      {!review && <Loading />}
+      {review && <ReviewsList items={review} />}
+    </>
+  );
 }
 
 Reviews.propTypes = {

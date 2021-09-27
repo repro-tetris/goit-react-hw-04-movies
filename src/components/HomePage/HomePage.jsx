@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getTreding } from "../../common/tmdb-api";
+import Loading from "../Loading/Loading";
 import { MovieList } from "../Movie";
 
 function HomePage() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -17,7 +18,8 @@ function HomePage() {
   return (
     <>
       <h2>Trending today</h2>
-      <MovieList items={movies} />
+      {!movies && <Loading />}
+      {movies && <MovieList items={movies} />}
     </>
   );
 }

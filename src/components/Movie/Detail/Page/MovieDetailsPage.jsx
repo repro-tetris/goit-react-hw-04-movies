@@ -5,6 +5,7 @@ import { getMovieDetail } from "../../../../common/tmdb-api";
 import { MovieDetailsCard } from "../../../Movie";
 import s from "./MovieDetailsPage.module.css";
 import AdditionalInfo from "../../AdditionalInfo/AdditionalInfo";
+import Loading from "../../../Loading/Loading";
 
 function MovieDetailsPage({ match, history }) {
   const [info, setInfo] = useState(null);
@@ -23,16 +24,19 @@ function MovieDetailsPage({ match, history }) {
   };
 
   return (
-    info && (
-      <>
-        <button className={s.btn} onClick={handleGoBackButton}>
-          <FcLeft size="20" />
-          Go back
-        </button>
-        <MovieDetailsCard info={info} />
-        <AdditionalInfo id={info.id} />
-      </>
-    )
+    <>
+      {!info && <Loading />}
+      {info && (
+        <>
+          <button className={s.btn} onClick={handleGoBackButton}>
+            <FcLeft size="20" />
+            Go back
+          </button>
+          <MovieDetailsCard info={info} />
+          <AdditionalInfo id={info.id} />
+        </>
+      )}
+    </>
   );
 }
 
